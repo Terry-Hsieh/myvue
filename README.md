@@ -58,3 +58,12 @@ let vm = new Vue({
         })
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/3.jpg "arrowfunction")
+
+### Directives
+```bash
+<p v-once>{{ msg }}</p> #指定這個DOM只處理預設的第一次，之後不再重新render(文章等等)
+<p>{{ html }} 1231321</p> #使用雙大括號可以對內容做組合
+<p v-html="html"></p> #會取代掉<p>12313</p> 12313變成vue指定的html值,容易觸發XSS攻擊 ,假設我塞的資料長 test:'<img src="aaa.jpg" onerror="window.alert(`omg`)"/>',
+<p v-text="html"></p> #會顯示vue指定的html的字串
+```
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
