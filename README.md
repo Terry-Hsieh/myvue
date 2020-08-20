@@ -43,3 +43,18 @@
     </script>
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/2.jpg "object.freeze")
+
+### 箭頭function與普通function
+```bash
+let vm = new Vue({
+            el:'#app',
+            data,
+            // created: function(){     #使用普通function可以拿到vue實體
+            //     console.log(this)
+            // }
+            created: () =>{             #使用箭頭function可以拿到window實體
+                console.log(this)
+            },
+        })
+```
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/3.jpg "arrowfunction")

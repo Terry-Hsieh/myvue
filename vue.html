@@ -17,24 +17,30 @@
         let data ={
             msg:'hello vue'
         }
-        let pokemon = {
-            img: 'src',
-            img:{
-                src: 'str',
-                alt: 'str'
-            },
-            title: 'str / html',
-            description: 'str / html',
-            price: 'number',
-            price:{
-                type: 'str',
-                count: 'number',
-            },
-            inventory: 'number',   
-        }
+        // let pokemon = {
+        //     img: 'src',
+        //     img:{
+        //         src: 'str',
+        //         alt: 'str'
+        //     },
+        //     title: 'str / html',
+        //     description: 'str / htmdl',
+        //     price: 'number',
+        //     price:{
+        //         type: 'str',
+        //         count: 'number',
+        //     },
+        //     inventory: 'number',   
+        // }
         let vm = new Vue({
             el:'#app',
             data,
+            // created: function(){
+            //     console.log(this)
+            // }
+            created: () =>{
+                console.log(this)
+            },
         })
     </script>
 </body>
