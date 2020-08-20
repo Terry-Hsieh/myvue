@@ -42,4 +42,4 @@
         })
     </script>
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/2.jpg "picture")
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/2.jpg "object.freeze")
