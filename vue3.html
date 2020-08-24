@@ -23,6 +23,14 @@
                 message:'hello',
             },
             computed:{
+                m1(){
+                    console.log('m1') //沒用到就不會印
+                    return this.message+1
+                },
+                m2(){
+                    console.log('m2') //沒用到就不會印
+                    return this.m1 +1
+                },
                 reversedmessage: function(){
                     console.log('computed')
                     return this.message.split('').reverse().join('')
