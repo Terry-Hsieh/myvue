@@ -81,3 +81,46 @@ let yyy = function(){
 全域參數可以在template使用 但是僅限白名單內 像是day1的Date
 ```
 
+### instances & templates
+```bash
+1. html template + el option #根據life cycle 有el 沒有 template 就去compile html裡的template >>> {{ html }}
+   html:
+   <p>{{ html }} 1231321</p>
+   el:
+   <script>
+    let vm = new Vue({
+            el:'#app',
+            data:{
+                html:"1231321313",
+            },          
+        })
+    </script>
+2. el option + template option(selector) #根據life cycle 有el 有 template 就去render , 會少一層 會只剩<span>  <div>不見ㄌ 整個取代
+   顯示:
+   <body>
+    <div>
+        <p>{{ html }} 1231321</p>
+    </div>
+   </body>
+   el+template:
+   let vm = new Vue({
+            el:'#app',
+            template:'<span style="color: red">This {{ msg }} be red.</span>',
+            data:{
+                msg:'564654 vue',
+            },
+        })
+3. template option(selector) + vm.$mount("#app") #根據life cycle 沒有el 看mount 有mount後 看有沒有template
+   templtae設定(沒有el)
+   let vm = new Vue({
+            template:'#page-tmeplate',
+                data:{ 
+                    msg:'564654 vue',
+             }
+    vm.$mount('#app')
+    寫script id 對上
+    <script type="text/x-template" id="page-tmeplate">
+        <span style="color: red">This {{ msg }} be red.</span>
+    </script>
+```
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/5.jpg "lifecycle")

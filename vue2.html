@@ -12,15 +12,20 @@
         <!-- <p v-once>{{ msg }}</p>
         <p>{{ msg }}</p> -->
         <!-- {{ msg }} -->
-        <p>{{ html }} 1231321</p>
+        <p>{{  }} 1231321</p>
         <p v-html="test"></p>
         <p v-text="test"></p>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+
+    <script type="text/x-template" id="page-tmeplate">
+        <span style="color: red">This {{ msg }} be red.</span>
+    </script>
+
     <script>
         let data ={
-            msg:'hello vue',
+            msg:'12313213 vue',
             html:'<span style="color: red">This should be red.</span>',
             test:'<img src="aaa.jpg" onerror="window.alert(`omg`)"/>',
         }
@@ -40,8 +45,13 @@
         //     inventory: 'number',   
         // }
         let vm = new Vue({
-            el:'#app',
-            data
+            // el:'#app',
+            // template:'<span style="color: red">This {{ msg }} be red.</span>',
+            template:'#page-tmeplate',
+            // data:{ 
+            //     msg:'564654 vue',
+            // }
+            data,
             // created: function(){
             //     console.log(this)
             // }
@@ -49,6 +59,7 @@
             //     console.log(this)
             // },
         })
+        vm.$mount('#app')
     </script>
 </body>
 
