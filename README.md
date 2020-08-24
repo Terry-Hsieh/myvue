@@ -67,3 +67,14 @@ let vm = new Vue({
 <p v-text="html"></p> #會顯示vue指定的html的字串
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
+
+### 陳述/表達式
+```bash
+function XXX(){
+    #陳述式
+}
+
+let yyy = function(){
+    #表達式
+}
+```
