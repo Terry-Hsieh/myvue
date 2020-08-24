@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <p v-once>{{ msg }}</p>
+        <p>{{ msg }}</p> -->
+        <!-- {{ msg }} -->
+        <p>{{ html }} 1231321</p>
+        <p v-html="test"></p>
+        <p v-text="test"></p>
+    </div>
+
+    <div id="section5" v-cloak> <!--直到編譯完成才顯示 v-cloak -->
+        <p>{{ company }} 版權所有 {{ year }}</p>
+    </div>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js'></script>
+    <script>
+        let vm = new Vue({
+            el:'#section5',
+            data:{
+                company:"1231321313",
+                year:'@' + new Date().getFullYear(),
+            },
+        })
+    </script>
+</body>
+
+</html>

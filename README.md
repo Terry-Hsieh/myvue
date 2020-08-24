@@ -77,4 +77,7 @@ function XXX(){
 let yyy = function(){
     #表達式
 }
+
+全域參數可以在template使用 但是僅限白名單內 像是day1的Date
 ```
+
