@@ -124,3 +124,11 @@ let yyy = function(){
     </script>
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/5.jpg "lifecycle")
+
+### computed
+```bash
+如果是資料變動去影響資料,可以往computed去想
+methods=>會一直重複執行，呼叫一次就做一次
+computed=>資料沒變動，就會做為變數存起來，需求幾次就回傳幾次一樣的。computed cache，對於複雜的好用
+***不是說methods就不會連動,只要有呼叫就會連動,因為畫面重新renderㄌ,掃vitural DOM看有沒有需要更新ㄉ***
+```
