@@ -125,12 +125,29 @@ let yyy = function(){
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/5.jpg "lifecycle")
 
-### computed
+### computed&methods&watch
 ```bash
 如果是資料變動去影響資料,可以往computed去想
 methods=>會一直重複執行，呼叫一次就做一次
 computed=>資料沒變動,就會做為變數存起來,需求幾次就回傳幾次一樣的.computed cache,對於複雜的好用,資料產生資料 資料觸發資料
-watch=>資料產生行為 資料觸發行為
+watch=>資料產生行為 資料觸發行為,資料連動觸發行為(api去資料庫更新再回傳新的)
 ***不是說methods就不會連動,只要有呼叫就會連動,因為畫面重新renderㄌ,掃vitural DOM看有沒有需要更新ㄉ***
 ***methods也可以連動,取決於是不是用在畫面***
+
+物件型寫法
+ computed:{
+                fullname:{
+                    get:function(){
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    set:function(newval){
+                        var names = newval.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[names.length - 1]
+                    },
+                },
+ }    
+ 寫get,set 較複雜的資料盡量不要,切割回送這種也要自己考慮一下
 ```
+
+
