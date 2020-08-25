@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="link.src" v-bind:target="link.target">{{ link.content }}</a>
+        <!-- 同理 可以藉由F12將type值換成checkbox -->
+        <input v-bind:type="input.type" /> 
+        <div :class="classcontent">test</div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
+    <script>
+        ;(function(){
+            let vm = new Vue({
+            el:"#app",
+            data(){
+                return{
+                    link:{
+                        src:"https://www.google.com/",
+                        target:"_self",
+                        content:"google",
+                        },
+                    input:{
+                        type:"text",
+                        },
+                    classcontent:{  //物件形式 用v-bind class較好控制是不是要顯示這個樣式(aaabbbccc)
+                        aaa:true,
+                        bbb:true,
+                        ccc:true,
+                        "ff-gg":true,
+                    }
+                    }
+                },
+            })      
+        })()      
+    </script>
+</body>

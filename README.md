@@ -65,8 +65,11 @@ let vm = new Vue({
 <p>{{ html }} 1231321</p> #使用雙大括號可以對內容做組合
 <p v-html="html"></p> #會取代掉<p>12313</p> 12313變成vue指定的html值,容易觸發XSS攻擊 ,假設我塞的資料長 test:'<img src="aaa.jpg" onerror="window.alert(`omg`)"/>',
 <p v-text="html"></p> #會顯示vue指定的html的字串
+<a v-bind:href="link.src" v-bind:target="link.target">{{ link.content }}</a> #加了v-bind他就會幫我加上那個link了 沒有加他不知道要連動 = 做了template
+相等於 <a :href="link.src" :target="link.target">{{ link.content }}</a> #v-bind縮寫就是" : "
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/6.jpg "用物件管理樣式")
 
 ### 陳述/表達式
 ```bash
@@ -150,4 +153,10 @@ watch=>資料產生行為 資料觸發行為,資料連動觸發行為(api去資�
  寫get,set 較複雜的資料盡量不要,切割回送這種也要自己考慮一下
 ```
 
+### 封裝
+```bash
+;(function({
+ #封裝 用f12看ROOT 可以拿到vue實體
+}))
+```
 
