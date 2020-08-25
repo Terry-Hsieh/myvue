@@ -16,10 +16,14 @@
     <div id="app" :class="{active:isActive}">
         <a v-bind:href="link.src" v-bind:target="link.target">{{ link.content }}</a>
         <!-- 同理 可以藉由F12將type值換成checkbox -->
+    </br>
         <input v-bind:type="input.type" /> 
-        <div :class="classcontent">test</div>
+        <!-- style css -->
+        <!-- 同一style是綁定優先 不一樣不影響 -->
+        <div :class="target" :class="classcontent" style="background-color: blue;" :style="styleobj" >test</div>  
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script>
         ;(function(){
             let vm = new Vue({
@@ -40,7 +44,11 @@
                         bbb:true,
                         ccc:true,
                         "ff-gg":true,
-                    }
+                    },
+                    styleobj:{
+                        color:"red",
+                        fontSize:"50px", //Size 駝峰式ㄉ鍋
+                    },
                     }
                 },
             })      
