@@ -70,6 +70,7 @@ let vm = new Vue({
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/6.jpg "用物件管理樣式")
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/7.jpg "物件管理樣式範例2")
 
 ### 陳述/表達式
 ```bash

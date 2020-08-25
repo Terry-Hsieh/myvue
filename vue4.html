@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #app.active{
+            background-color: chocolate;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" :class="{active:isActive}">
         <a v-bind:href="link.src" v-bind:target="link.target">{{ link.content }}</a>
         <!-- 同理 可以藉由F12將type值換成checkbox -->
         <input v-bind:type="input.type" /> 
@@ -29,7 +34,8 @@
                     input:{
                         type:"text",
                         },
-                    classcontent:{  //物件形式 用v-bind class較好控制是不是要顯示這個樣式(aaabbbccc)
+                    isActive:true,
+                    classcontent:{  //物件形式 用v-bind class較好控制是不是要顯示這個樣式(aaabbbccc),用字串 classcontent:'aa bb cc' 如果不要bb就要想辦法拿掉bb了 很麻煩會出錯
                         aaa:true,
                         bbb:true,
                         ccc:true,
