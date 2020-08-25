@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #app.active{
+        /* #app.active{
             background-color: chocolate;
-        }
+        } */
     </style>
 </head>
 
@@ -19,8 +19,10 @@
     </br>
         <input v-bind:type="input.type" /> 
         <!-- style css -->
-        <!-- 同一style是綁定優先 不一樣不影響 -->
+        <!-- 同一style是綁定優先 不一樣不影響,除了用物件 也可以用陣列喔喔喔 -->
         <div :class="target" :class="classcontent" style="background-color: blue;" :style="styleobj" >test</div>  
+        <!-- 同一style是綁定優先 用陣列 就會是後蓋前喔^_^ -->
+        <div :class="target" :class="classcontent" :style="[styleobj,styleobj1]">test</div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -48,6 +50,10 @@
                     styleobj:{
                         color:"red",
                         fontSize:"50px", //Size 駝峰式ㄉ鍋
+                    },
+                    styleobj1:{
+                        color:"blue",
+                        // fontSize:"50px", //Size 駝峰式ㄉ鍋
                     },
                     }
                 },
