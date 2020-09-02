@@ -1,0 +1,23 @@
+{
+  "name": "myvue",
+  "version": "1.0.0",
+  "description": "```bash\r     <script>\r         let data ={\r             msg:'hello vue'\r         }\r         let pokemon = {\r             img: 'src',\r             img:{\r                 src: 'str',\r                 alt: 'str'\r             },\r             title: 'str / html',\r             description: 'str / html',\r             price: 'number',\r             price:{\r                 type: 'str',\r                 count: 'number',\r             },\r             inventory: 'number',   \r         }\r         let vm = new Vue({\r             el:'#app',\r             data,\r         })\r     </script>\r ```\r ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/1.jpg \"picture\")",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terry-Hsieh/myvue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Terry-Hsieh/myvue/issues"
+  },
+  "homepage": "https://github.com/Terry-Hsieh/myvue#readme",
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-plugin-vue": "^6.2.2"
+  }
+}
