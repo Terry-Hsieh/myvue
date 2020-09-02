@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if 如果用false不顯示,是沒有辦法被拿到的,會只做一個小標籤,if else中間不能加東西 會失效
+        <h1 v-if="show"> hello vue</h1> 
+        <h1 v-else>xxx</h1> -->
+
+        <!-- 建議用template,將他們grouping起來,較不會影響css -->
+        <!-- 沒看到小標籤不代表沒有用v-if,只用v-if會有小標籤,用if-else就不會有小標籤 -->
+        <!-- <template v-if="show">
+            <h1> hello vue </h1>
+            <span>dedededede</span>
+        </template>
+        <template v-else>
+            <h1> xxx </h1>
+            <span>dadadadadad</span>
+        </template> -->
+        <!-- 也可以用表達式寫喔^_^~ -->
+        <!-- <div v-if="Math.random() > 0.5">
+            now you see me
+        </div>
+        <div v-else>
+            now you don't
+        </div> -->
+        <!-- 下面像4組靜態資料做切換,加上key可以讓切換時的input資料不保留 -->
+        <div v-if="type === 'A'">
+            A
+            <input type="text" key="aInput"/>
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+            <input type="text" key="bInput"/>
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+            <input type="text" />
+        </div>
+        <div v-else>
+            not A/B/C
+            <input type="text" />
+        </div>
+        <!-- 這裡像動態切換 -->
+        <div> {{ content }}</div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
+    <script>
+        const dataMapping = {
+            A:'A',
+            B:'B',
+            C:'C',
+        }
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                show:true, 
+                type:'A',
+            },
+            computed:{
+                content(){
+                    return dataMapping[this.type] || 'not A/B/C'
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>
