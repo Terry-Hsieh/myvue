@@ -67,6 +67,11 @@ let vm = new Vue({
 <p v-text="html"></p> #會顯示vue指定的html的字串
 <a v-bind:href="link.src" v-bind:target="link.target">{{ link.content }}</a> #加了v-bind他就會幫我加上那個link了 沒有加他不知道要連動 = 做了template
 相等於 <a :href="link.src" :target="link.target">{{ link.content }}</a> #v-bind縮寫就是" : "
+v-for不要配v-if!!!!!!!!!!!!!!
+v-show,v-if的選擇在於切換頻率
+v-show = 一次渲染完所有的
+v-if = 切換一次渲染一次
+如果高頻率 就推薦使用v-show
 ```
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
 ![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/6.jpg "用物件管理樣式")

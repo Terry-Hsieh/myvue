@@ -12,7 +12,27 @@
         <!-- v-if 如果用false不顯示,是沒有辦法被拿到的,會只做一個小標籤,if else中間不能加東西 會失效
         <h1 v-if="show"> hello vue</h1> 
         <h1 v-else>xxx</h1> -->
+<!-- 15-34 都是list render的方式 -->
+            <!-- userListArray:[
+                        {// key:value //鍵:值
+                            name:"Terry",
+                            gender:"male",
+                        },
+                        {
+                            name:"Alice",
+                            gender:"female",
+                        },
+                    ], -->
+            <h1 v-for="user,index in userListArray">{{ user.name }}</h1>
+                        <!-- 這個方法是讓資料決定畫面要如何產生 不用在畫面這下一堆條件看要篩掉誰 gender<<條件 -->
+            <h1 v-for="user,index in computedUser">{{ user.name }}</h1>
+            <!-- userListObj:{
+                Terry:'male',
+                Alice:'female',
+            }, -->
 
+            <h1 v-for="user,key in userListObj">{{ key }}</h1>  
+            <span v-for="num in 10">{{ num }},</span>  
         <!-- 建議用template,將他們grouping起來,較不會影響css -->
         <!-- 沒看到小標籤不代表沒有用v-if,只用v-if會有小標籤,用if-else就不會有小標籤 -->
         <!-- <template v-if="show">
@@ -31,7 +51,7 @@
             now you don't
         </div> -->
         <!-- 下面像4組靜態資料做切換,加上key可以讓切換時的input資料不保留 -->
-        <div v-if="type === 'A'">
+        <!-- <div v-if="type === 'A'">
             A
             <input type="text" key="aInput"/>
         </div>
@@ -46,9 +66,9 @@
         <div v-else>
             not A/B/C
             <input type="text" />
-        </div>
+        </div> -->
         <!-- 這裡像動態切換 -->
-        <div> {{ content }}</div>
+        <!-- <div> {{ content }}</div> -->
     </div>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
@@ -63,10 +83,29 @@
             data:{
                 show:true, 
                 type:'A',
+                userListArray:[
+                    {// key:value //鍵:值
+                        name:"Terry",
+                        gender:"male",
+                    },
+                    {
+                        name:"Alice",
+                        gender:"female",
+                    },
+                ],
+                userListObj:{
+                    Terry:'male',
+                    Alice:'female',
+                },
             },
             computed:{
                 content(){
                     return dataMapping[this.type] || 'not A/B/C'
+                },
+                computedUser(){
+                    return this.userListArray.filter((user) => {
+                        return user.gender === 'male'
+                    })
                 },
             },
         })
