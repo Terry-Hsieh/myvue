@@ -1,4 +1,5 @@
-### 一個PCHOME的畫面應該會有那些資料需要創建
+### 一個 PCHOME 的畫面應該會有那些資料需要創建
+
 ```bash
     <script>
         let data ={
@@ -17,7 +18,7 @@
                 type: 'str',
                 count: 'number',
             },
-            inventory: 'number',   
+            inventory: 'number',
         }
         let vm = new Vue({
             el:'#app',
@@ -25,9 +26,11 @@
         })
     </script>
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/1.jpg "picture")
+
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/1.jpg 'picture')
 
 ### object freeze
+
 ```bash
     <script>
         let data ={
@@ -42,9 +45,11 @@
         })
     </script>
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/2.jpg "object.freeze")
 
-### 箭頭function與普通function
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/2.jpg 'object.freeze')
+
+### 箭頭 function 與普通 function
+
 ```bash
 let vm = new Vue({
             el:'#app',
@@ -57,9 +62,11 @@ let vm = new Vue({
             },
         })
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/3.jpg "arrowfunction")
+
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/3.jpg 'arrowfunction')
 
 ### Directives
+
 ```bash
 <p v-once>{{ msg }}</p> #指定這個DOM只處理預設的第一次，之後不再重新render(文章等等)
 <p>{{ html }} 1231321</p> #使用雙大括號可以對內容做組合
@@ -73,11 +80,13 @@ v-show = 一次渲染完所有的
 v-if = 切換一次渲染一次
 如果高頻率 就推薦使用v-show
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg "xss")
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/6.jpg "用物件管理樣式")
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/7.jpg "物件管理樣式範例2")
+
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/4.jpg 'xss')
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/6.jpg '用物件管理樣式')
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/7.jpg '物件管理樣式範例2')
 
 ### 陳述/表達式
+
 ```bash
 function XXX(){
     #陳述式
@@ -91,6 +100,7 @@ let yyy = function(){
 ```
 
 ### instances & templates
+
 ```bash
 1. html template + el option #根據life cycle 有el 沒有 template 就去compile html裡的template >>> {{ html }}
    html:
@@ -101,7 +111,7 @@ let yyy = function(){
             el:'#app',
             data:{
                 html:"1231321313",
-            },          
+            },
         })
     </script>
 2. el option + template option(selector) #根據life cycle 有el 有 template 就去render , 會少一層 會只剩<span>  <div>不見ㄌ 整個取代
@@ -123,7 +133,7 @@ let yyy = function(){
    templtae設定(沒有el)
    let vm = new Vue({
             template:'#page-tmeplate',
-                data:{ 
+                data:{
                     msg:'564654 vue',
              }
     vm.$mount('#app')
@@ -132,9 +142,11 @@ let yyy = function(){
         <span style="color: red">This {{ msg }} be red.</span>
     </script>
 ```
-![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/5.jpg "lifecycle")
+
+![](https://raw.githubusercontent.com/Terry-Hsieh/myvue/master/imgstore/5.jpg 'lifecycle')
 
 ### computed&methods&watch
+
 ```bash
 如果是資料變動去影響資料,可以往computed去想
 methods=>會一直重複執行，呼叫一次就做一次
@@ -155,11 +167,12 @@ watch=>資料產生行為 資料觸發行為,資料連動觸發行為(api去資�
                         this.lastName = names[names.length - 1]
                     },
                 },
- }    
+ }
  寫get,set 較複雜的資料盡量不要,切割回送這種也要自己考慮一下
 ```
 
 ### 封裝&eval
+
 ```bash
 ;(function({
  #封裝 用f12看ROOT 可以拿到vue實體
@@ -167,4 +180,3 @@ watch=>資料產生行為 資料觸發行為,資料連動觸發行為(api去資�
 
 eval 不能用!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 要用就要確保不會是使用者傳送資料進
 ```
-
