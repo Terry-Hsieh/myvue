@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 下面這兩行就像PCHOME那些切換分頁的效果 第幾個做甚麼事 -->
+        <!-- <button v-for="num in total" @click="count = num - 1">{{num-1}}</button>
+        <h1>{{count}}</h1> -->
+        <!-- 下面這兩行是觸發aaa bbb ccc ddd eee 按哪個換哪個 -->
+        <!-- <button v-for="(content,index) in contents" @click="count = index ">{{index}}</button>
+        <h1>{{contents[count]}}</h1> -->
+        <!-- 下面這兩行 相比上面 它是處理css 不是整個tag 在切換成本會比較低 -->
+        <!-- <button v-for="(content,index) in contents" @click="count = index ">{{index}}</button>
+        <h1 v-for="(content,index) in contents" v-show="index === count">{{content}}</h1> -->
+        <!-- click的事件也可以寫methods喔~ -->
+        <!-- <button v-for="(content,index) in contents" @click="clickHandler">{{index}}</button>
+        <h1 v-for="(content,index) in contents" v-show="index === count">{{content}}</h1> -->
+
+        <!-- 綁定event.target可以知道自己按了甚麼 類似偵聽,vue會自己幫你傳event -->
+        <!-- <button v-for="(content,index) in contents" @click="clickHandler" :data-index="index">{{index}}</button>
+        <div>
+            <h1 v-for="(content,index) in contents" v-show="index === count">{{content}}</h1>
+        </div> -->
+        <!-- 傳進一個index,類似呼叫執行,要找event要加上$ -->
+        <button v-for="(content,index) in contents" @click="clickHandler2(index,$event)" :data-index="index">
+            {{index}}
+        </button>
+        <div>
+            <h1 v-for="(content,index) in contents" v-show="index === count">{{content}}</h1>
+        </div>
+        <!-- <button @click="">-1</button>
+        <button @click="">+1</button> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                total: 5,
+                contents: ['aaa', 'bbb', 'ccc', 'ddd', 'eee'],
+            },
+            methods: {
+                // 預設就會傳一個event,像是甚麼mouseevent
+                clickHandler(event) {
+                    // console.log('console', event)
+                    // *1 將字串轉成int
+                    this.count = event.target.dataset.index * 1
+                },
+                clickHandler2(index, event) {
+                    console.log(event)
+                    this.count = index
+                },
+            },
+        })
+    </script>
+</body>
